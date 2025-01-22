@@ -1,0 +1,91 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: white transparent;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container-rows {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  animation: rotar 1s linear forwards;
+  animation-delay: 2s;
+
+  .symbol {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14vmax;
+    height: 14vmax;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 0.5s ease-in-out forwards;
+    animation-delay: 3s;
+    opacity: 0;
+  }
+
+  .row {
+    height: 33vh;
+    width: 100%;
+    position: absolute;
+    animation: escalar 1s linear both;
+
+    &.rowtop {
+      top: 0;
+      left: 0;
+      background-color: dodgerblue;
+      transform-origin: left;
+    }
+
+    &.rowbottom {
+      right: 0;
+      bottom: 0;
+      background-color: mediumturquoise;
+      transform-origin: right;
+      animation-delay: 1s;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes escalar {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes rotar {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(-15deg) scale(1.7);
+  }
+}
